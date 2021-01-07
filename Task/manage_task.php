@@ -81,16 +81,14 @@
                     while ($rowtask = mysqli_fetch_array($mngtsk)) { 
                     if($rowtask['nama_task']==NULL){ ?>
                     <?php }else{ 
-                        $uniq    = '12345';
+                        $uniq    = '1234567';
                         $nouniq  = str_shuffle($uniq);
                         $random  = substr($nouniq, 0,1);
-                        if($random==1){$bg = "bg-info";}elseif($random==2){$bg = "bg-primary";}
-                        elseif($random==3){$bg = "bg-dark";}elseif($random==4){$bg = "bg-danger";}
-                        else{$bg = "bg-warning";}
+                        $bg      = array("","info","primary","dark","danger","purple","teal","warning")
                     ?>
                         <a class="col-md-6 text-dark" href="#" data-toggle="modal" data-target="#myModal1<?= $rowtask['id_task'] ?>">
                             <div class="info-box">
-                                <span class="info-box-icon <?= $bg; ?> elevation-2"><i class="fas fa-cog"></i></span>
+                                <span class="info-box-icon bg-<?= $bg[$random]; ?> elevation-2"><i class="fas fa-cog"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text h5"><?= $rowtask['kode_task']." - ".$rowtask['nama_task']; ?></span>
                                     <span class="info-box-number"><?= $rowtask['isi_task']; ?></span>
@@ -108,7 +106,7 @@
                                             $dtsk = mysqli_fetch_array($task);
                                         ?>
                                         <div class="card p-2">
-                                            <p class="h5 mb-2 text-info"><?= $dtsk['nama_task'] ?></p>
+                                            <p class="h5 mb-2 text-<?= $bg[$random]; ?>"><?= $dtsk['nama_task'] ?></p>
                                             <p class="h5 mb-2"><?= $dtsk['isi_task'] ?></p>
                                         </div>
                                         <hr>
@@ -116,7 +114,8 @@
                                             $jntask = mysqli_query($koneksi, "SELECT * FROM task WHERE NOT jenis_task='Task List' AND kode_task='$_GET[kodetsk]' GROUP BY jenis_task");
                                             while($jn = mysqli_fetch_array($jntask)){
                                         ?>
-                                        <a href="manage_task_acc.php?acc=<?= $jn['jenis_task'] ?>&kodetsk=<?= $rowtask['kode_task']; ?>&id_task=<?= $rowtask['id_task'] ?>" class="btn btn-info btn-sm"><?= $jn['jenis_task']; ?></a>
+                                        <a href="manage_task_acc.php?acc=<?= $jn['jenis_task'] ?>&kodetsk=<?= $rowtask['kode_task']; ?>&id_task=<?= $rowtask['id_task'] ?>" 
+                                        class="btn bg-<?= $bg[$random]; ?> btn-sm"><?= $jn['jenis_task']; ?></a>
                                         <?php } ?>
                                         <button type="button" class="btn btn-danger btn-sm float-right" data-dismiss="modal">Close</button>
                                     </div>
