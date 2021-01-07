@@ -80,10 +80,17 @@
                     $mngtsk  = mysqli_query($koneksi,$qtsk);
                     while ($rowtask = mysqli_fetch_array($mngtsk)) { 
                     if($rowtask['nama_task']==NULL){ ?>
-                    <?php }else{ ?>
+                    <?php }else{ 
+                        $uniq    = '12345';
+                        $nouniq  = str_shuffle($uniq);
+                        $random  = substr($nouniq, 0,1);
+                        if($random==1){$bg = "bg-info";}elseif($random==2){$bg = "bg-primary";}
+                        elseif($random==3){$bg = "bg-dark";}elseif($random==4){$bg = "bg-danger";}
+                        else{$bg = "bg-warning";}
+                    ?>
                         <a class="col-md-6 text-dark" href="#" data-toggle="modal" data-target="#myModal1<?= $rowtask['id_task'] ?>">
                             <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+                                <span class="info-box-icon <?= $bg; ?> elevation-2"><i class="fas fa-cog"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text h5"><?= $rowtask['kode_task']." - ".$rowtask['nama_task']; ?></span>
                                     <span class="info-box-number"><?= $rowtask['isi_task']; ?></span>
@@ -100,8 +107,10 @@
                                             $task = mysqli_query($koneksi, "SELECT * FROM task WHERE id_task='$rowtask[id_task]'");
                                             $dtsk = mysqli_fetch_array($task);
                                         ?>
-                                        <p class="h5 mb-2"><?= $dtsk['nama_task'] ?></p>
-                                        <p class="h5 mb-2"><?= $dtsk['isi_task'] ?></p>
+                                        <div class="card p-2">
+                                            <p class="h5 mb-2 text-info"><?= $dtsk['nama_task'] ?></p>
+                                            <p class="h5 mb-2"><?= $dtsk['isi_task'] ?></p>
+                                        </div>
                                         <hr>
                                         <?php 
                                             $jntask = mysqli_query($koneksi, "SELECT * FROM task WHERE NOT jenis_task='Task List' AND kode_task='$_GET[kodetsk]' GROUP BY jenis_task");
