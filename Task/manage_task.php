@@ -102,9 +102,9 @@
                     ?>  
                         <a class="col-md-6 text-dark" href="#" id="key" data-toggle="modal" data-target="#myModal1<?= $rowtask['id_task'] ?>">
                             <div class="info-box">
-                                <span class="info-box-icon bg-<?= $bg[$random]; ?> elevation-2"><i class="fas fa-cog"></i></span>
+                                <span class="info-box-icon bg-<?= $bg[$random]; ?> elevation-2"><i class="fas fa-clipboard-list"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text h5"><?= $rowtask['kode_task']." - ".$rowtask['nama_task']; ?></span>
+                                    <span class="info-box-text h5"><?= $rowtask['nama_task']; ?></span>
                                     <span class="info-box-number"><?= $rowtask['isi_task']; ?></span>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                 <!-- Modal content-->
                                 <div class="modal-content text-left">
                                     <div class="modal-body">
-                                        <h5 class="modal-title">Action Task</h5><hr>
+                                        <h5 class="modal-title">Manage Action</h5><hr>
                                         <?php 
                                             $task = mysqli_query($koneksi, "SELECT * FROM task WHERE id_task='$rowtask[id_task]'");
                                             $dtsk = mysqli_fetch_array($task);
@@ -131,7 +131,7 @@
                                         <a href="manage_task_acc.php?acc=<?= $jn['jenis_task'] ?>&kodetsk=<?= $rowtask['kode_task']; ?>&id_task=<?= $rowtask['id_task'] ?>" 
                                         class="btn bg-<?= $bg[$random]; ?> btn-sm"><?= $jn['jenis_task']; ?></a>
                                         <?php } ?>
-                                        <button type="button" class="btn btn-danger btn-sm float-right" data-dismiss="modal">Close</button>
+                                        <a href="manage_task_del.php?id_task=<?= $rowtask['id_task'] ?>&kodetsk=<?= $_GET['kodetsk']; ?>" class="btn btn-danger btn-sm float-right">Hapus</a>
                                     </div>
                                 </div>
                             </div>

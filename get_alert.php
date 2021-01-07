@@ -43,7 +43,7 @@ if(isset($_GET['alert'])){ ?>
 
     <!-- Alert hapus data mahasiswa -->
     <?php 
-    if($_GET['alert']=='hapus_mhs'){ ?>
+    if($_GET['alert']=='hapus'){ ?>
 
     <script type='text/javascript'>
         $(document).ready( function() {
@@ -55,7 +55,7 @@ if(isset($_GET['alert'])){ ?>
             });
             Toast.fire({
                 icon: 'success',
-                title: "&nbsp;&nbsp; Data <?= $_GET['nama_mhs']; ?> Berhasil di hapus !"
+                title: "&nbsp;&nbsp; Data Berhasil di hapus !"
             })
         });
     </script>
