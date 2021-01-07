@@ -1,4 +1,4 @@
-<?php $menu = "Task"; ?>
+<?php $menu = "List Task"; ?>
 <?php include "../header.php"; ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper p-2">
@@ -9,8 +9,9 @@
         </div>
         <div class="text-right col-md-6">
             <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal2"><i class="fas fa-plus"></i> Add Card</a>
-            <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal1"><i class="fas fa-plus"></i> Add Data</a>
-            <div class="modal fade" id="myModal1" role="dialog">
+            <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mngmodal"><i class="fas fa-plus"></i> Add Data</a>
+            <a href="list_task.php" class="btn btn-sm btn-outline-danger">Back</a>
+            <div class="modal fade" id="mngmodal" role="dialog">
                 <div class="modal-dialog modal-lg">
                     <!-- Modal content-->
                     <div class="modal-content text-left">
@@ -72,7 +73,7 @@
         while($mng    = mysqli_fetch_array($sqlmng)){
     ?>
     <div class="card">
-        <div class="card-header"><?= $mng['jenis_task'] ?></div>
+        <div class="card-header"><?= $mng['jenis_task']; ?></div>
         <div class="card-body">
             <div class="row">
                 <?php

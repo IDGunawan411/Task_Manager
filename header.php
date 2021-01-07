@@ -1,7 +1,7 @@
 <?php include "koneksi.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php if($menu=='Task'){?>
+<?php if($menu=='Task' || $menu=='List Task'){?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -188,7 +188,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-        <?php if($menu=='Task'){ ?>
+        <?php if($menu=='Task' || $menu=='List Task'){ ?>
           <img src="../dist/img/linux1.jpg" class="img-circle elevation-2" alt="User Image">
         <?php }else{ ?>
           <img src="dist/img/linux1.jpg" class="img-circle elevation-2" alt="User Image">
@@ -220,7 +220,11 @@
                 </a>
               </li>
               <li class="nav-item mb-1">
-                <a href="Task/list_task.php" class="nav-link <?= $menu == "Create" ? 'bg-info rounded' : '' ?>">
+                <?php if($menu=='Task' || $menu=='Index'){?>
+                  <a href="Task/list_task.php" class="nav-link <?= $menu == "Task" || $menu == "List Task" ? 'bg-info rounded' : '' ?>">
+                <?php }elseif($menu=='List Task'){?>
+                  <a href="list_task.php" class="nav-link <?= $menu == "Task" || $menu == "List Task" ? 'bg-info rounded' : '' ?>">
+                <?php } ?>
                   <i class="far fa-edit nav-icon"></i>
                   <p>List Task<span class="right badge badge-light">New</p>
                 </a> 

@@ -6,6 +6,6 @@
 
     $udp = mysqli_query($koneksi, "UPDATE task SET jenis_task='$jenis_task' WHERE id_task='$id_task'");
     
-    header("location:manage_task.php?kodetsk=$kode_task");
+    header("location:manage_task.php?kodetsk=$kode_task&alert=updtsk");
 
 ?>

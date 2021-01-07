@@ -1,6 +1,6 @@
   <!-- Main Footer -->
   <footer class="main-footer text-sm">
-    <strong>Copyright &copy; 2020 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; <?= date('Y') ?> <a href="http://github.com/IDGunawan411/Task_Manager">Task Manager</a>.</strong>
         All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.0.4
@@ -9,7 +9,7 @@
 </div>
 <!-- ./wrapper -->
 
-<?php if($menu=='Task'){?>
+<?php if($menu=='Task' || $menu=='List Task'){?>
   <!-- jQuery -->
   <script src="../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->

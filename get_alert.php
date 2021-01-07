@@ -23,7 +23,7 @@ if(isset($_GET['alert'])){ ?>
     
     <!-- Alert Tambah row -->
     <?php 
-    if($_GET['alert']=='tambah_row'){ ?>
+    if($_GET['alert']=='updtsk'){ ?>
 
     <script type='text/javascript'>
         $(document).ready( function() {
@@ -35,7 +35,7 @@ if(isset($_GET['alert'])){ ?>
             });
             Toast.fire({
                 icon: 'info',
-                title: '&nbsp;&nbsp; Data Row Berhasil ditambah !'
+                title: '&nbsp;&nbsp; Berhasil Mengubah !'
             })
         });
     </script>

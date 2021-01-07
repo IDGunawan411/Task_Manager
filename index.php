@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-header row">
             <div class="text-left col-md-6">
-                <h5>Data Mahasiswa</h5>
+                <h5>Data List Task</h5>
             </div>
             <div class="text-right col-md-6">
                 <a href="create.php" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add Data</a>
@@ -22,7 +22,7 @@
                 <tbody>
                     <?php
                         // run your code here
-                        $qtsk   = "SELECT * FROM task";
+                        $qtsk   = "SELECT * FROM task WHERE jenis_task='Task List'";
                         $extsk  = $koneksi->prepare($qtsk);
                         $extsk->execute();
                         $dtsk   = $extsk->get_result();
