@@ -3,3 +3,6 @@
 
 # Manage Task
 ![image](https://user-images.githubusercontent.com/63904116/103894682-d8eb4500-5121-11eb-940b-31cb631ad879.png)
+
+# Action Task
+![image](https://user-images.githubusercontent.com/63904116/103894813-0637f300-5122-11eb-96df-91edcafc792b.png)
