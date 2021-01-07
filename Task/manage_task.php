@@ -98,7 +98,7 @@
                         $uniq    = '1234567';
                         $nouniq  = str_shuffle($uniq);
                         $random  = substr($nouniq, 0,1);
-                        $bg      = array("","info","primary","dark","danger","purple","teal","warning")
+                        $bg      = array("","info","primary","dark","danger","purple","teal","warning");
                     ?>  
                         <a class="col-md-6 text-dark" href="#" id="key" data-toggle="modal" data-target="#myModal1<?= $rowtask['id_task'] ?>">
                             <div class="info-box">
@@ -120,7 +120,7 @@
                                             $dtsk = mysqli_fetch_array($task);
                                         ?>
                                         <div class="card p-2">
-                                            <p class="h5 mb-2 text-<?= $bg[$random]; ?>"><?= $dtsk['nama_task'] ?></p>
+                                            <p class="h5 mb-2 text-<?= $bg[$random]; ?>"><?= $dtsk['nama_task']." - ".$dtsk['jenis_task'] ?></p>
                                             <p class="h5 mb-2"><?= $dtsk['isi_task'] ?></p>
                                         </div>
                                         <hr>

@@ -43,10 +43,15 @@
                     $extsk  = $koneksi->prepare($qtsk);
                     $extsk->execute();
                     $dtsk   = $extsk->get_result();
-                    while ($rowtask = $dtsk->fetch_assoc()) { ?>
+                    while ($rowtask = $dtsk->fetch_assoc()) { 
+                        $uniq    = '1234567';
+                        $nouniq  = str_shuffle($uniq);
+                        $random  = substr($nouniq, 0,1);
+                        $bg      = array("","info","primary","dark","danger","purple","teal","warning");    
+                    ?>
                     <a class="col-md-6 text-dark" href="manage_task.php?kodetsk=<?= $rowtask['kode_task']; ?>">
                         <div class="info-box">
-                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+                            <span class="info-box-icon bg-<?= $bg[$random]; ?> elevation-1"><i class="fab fa-google"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text h5"><?= $rowtask['kode_task']." - ".$rowtask['nama_task']; ?></span>
                                 <span class="info-box-number"><?= $rowtask['isi_task']; ?></span>
