@@ -4,8 +4,12 @@
 <div class="content-wrapper p-2">
     
     <div class="row p-2">
+    <?php 
+        $sqljudul = mysqli_query($koneksi, "SELECT * FROM task WHERE kode_task='$_GET[kodetsk]' AND jenis_task='Task List'");
+        $judul = mysqli_fetch_array($sqljudul)
+    ?>
         <div class="text-left col-md-6">
-            <h5>Manage Task<h5>
+            <h5>Manage Task <?= $judul['nama_task']; ?><h5>
         </div>
         <div class="text-right col-md-6">
             <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal2"><i class="fas fa-plus"></i> Add Card</a>
