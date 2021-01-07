@@ -69,13 +69,26 @@
         </div>
     </div>
     <?php 
-        $sqlmng = mysqli_query($koneksi, "SELECT * FROM task WHERE kode_task='$_GET[kodetsk]' AND NOT jenis_task='Task List' GROUP BY jenis_task DESC");
-        while($mng    = mysqli_fetch_array($sqlmng)){
+        $sqlmng = mysqli_query($koneksi, "SELECT * FROM task WHERE kode_task='$_GET[kodetsk]' AND NOT jenis_task='Task List' GROUP BY jenis_task DESC ORDER BY id_task ASC");
+        while($mng = mysqli_fetch_array($sqlmng)){
     ?>
     <div class="card">
         <div class="card-header"><?= $mng['jenis_task']; ?></div>
         <div class="card-body">
-            <div class="row">
+            <input class="col-md-3 form-control mb-2 form-control-sm" id="myInput<?= $mng['jenis_task']; ?>" type="text" placeholder="Search..">
+            <hr>
+            <script src="../plugins/jquery/jquery.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $("#myInput<?= $mng['jenis_task']; ?>").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                            $("#myDIV<?= $mng['jenis_task']; ?> #key").filter(function() {
+                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                    });
+                });
+            </script>
+            <div class="row" id="myDIV<?= $mng['jenis_task']; ?>">
                 <?php
                     $qtsk    = "SELECT * FROM task WHERE jenis_task='$mng[jenis_task]' AND kode_task='$_GET[kodetsk]'";
                     $mngtsk  = mysqli_query($koneksi,$qtsk);
@@ -86,8 +99,8 @@
                         $nouniq  = str_shuffle($uniq);
                         $random  = substr($nouniq, 0,1);
                         $bg      = array("","info","primary","dark","danger","purple","teal","warning")
-                    ?>
-                        <a class="col-md-6 text-dark" href="#" data-toggle="modal" data-target="#myModal1<?= $rowtask['id_task'] ?>">
+                    ?>  
+                        <a class="col-md-6 text-dark" href="#" id="key" data-toggle="modal" data-target="#myModal1<?= $rowtask['id_task'] ?>">
                             <div class="info-box">
                                 <span class="info-box-icon bg-<?= $bg[$random]; ?> elevation-2"><i class="fas fa-cog"></i></span>
                                 <div class="info-box-content">
