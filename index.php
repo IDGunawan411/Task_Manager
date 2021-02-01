@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-header row">
             <div class="text-left col-md-6">
-                <h5>Data List Task</h5>
+                <h5>Data List Taskz</h5>
             </div>
             <div class="text-right col-md-6">
                 <a href="create.php" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add Data</a>
